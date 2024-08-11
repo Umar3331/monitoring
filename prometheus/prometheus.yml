@@ -16,8 +16,8 @@ scrape_configs:
           application: 'monitoring'
           exporter: 'node_exporter'
 
-  - job_name: 'tempo_metrics'
+  - job_name: 'opentelemetry'
     scrape_interval: 5s
     static_configs:
-      - targets: ['13.48.25.194:3200']
+      - targets: ['otel-collector:8889']
 

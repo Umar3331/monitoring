@@ -7,8 +7,13 @@ receivers:
 exporters:
   logging:
     loglevel: debug
-  otlp:
-    endpoint: "tempo:3200"
+  jaeger:
+    endpoint: "jaeger:14250"
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: "0.0.0.0.8889"
+    namespace: "opentelemetry"
 
 processors:
   batch:
@@ -18,5 +23,9 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [otlp, logging]
+      exporters: [jaeger, logging]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prometheus]
 
