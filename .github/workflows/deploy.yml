@@ -27,21 +27,21 @@ jobs:
       with:
         context: ./otel
         push: true
-        tags: your-dockerhub-username/otel-collector:latest
+        tags: umar3331/otel-collector:latest
 
     - name: Build and push Jaeger image
       uses: docker/build-push-action@v2
       with:
         context: ./jaeger
         push: true
-        tags: your-dockerhub-username/jaeger:latest
+        tags: umar3331/jaeger:latest
 
     - name: Build and push Fluent-bit image
       uses: docker/build-push-action@v2
       with:
         context: ./fluent-bit
         push: true
-        tags: your-dockerhub-username/fluent-bit:latest
+        tags: umar3331/fluent-bit:latest
 
   deploy:
     runs-on: ubuntu-latest
