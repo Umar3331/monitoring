@@ -48,14 +48,19 @@ jobs:
     needs: build-and-push
 
     steps:
-    - name: Deploy to Server via SSH
-      uses: appleboy/ssh-action@v0.1.0
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH agent
+      uses: webfactory/ssh-agent@v0.5.3
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
+        ssh-private-key: ${{ secrets.SSH_KEY }}
+
+    - name: Deploy to Server via SSH
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.SSH_HOST }} << 'EOF'
           cd /home/ubuntu/monitoring
           docker-compose pull
           docker-compose up -d
+        EOF
 
