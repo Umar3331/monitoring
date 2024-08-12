@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   otel:
     build: .
@@ -8,7 +9,5 @@ services:
       - "55680:55680"
     networks:
       - monitoring
-networks:
-  monitoring:
-    driver: bridge
+    command: ["otelcol", "--config=/etc/otel/config.yaml"]  # Optional, if needed
 
