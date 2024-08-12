@@ -1,0 +1,34 @@
+collector:
+  zipkin:
+    http:
+      port: 9411
+  jaeger-thrift-http:
+    port: 14268
+  grpc:
+    tls:
+      enabled: false
+  pprof:
+    enabled: true
+    endpoint: 0.0.0.0:1777
+  health_check:
+    port: 14269
+  storage:
+    type: badger
+    options:
+      badger:
+        directory_value: /data/jaeger/badger/data
+        directory_key: /data/jaeger/badger/key
+  sampling:
+    strategies_file: /etc/jaeger/sampling_strategies.json
+
+query:
+  static_files: /go/jaeger-ui/
+  port: 16686
+  base_path: /jaeger
+
+ingester:
+  kafka:
+    brokers: ["localhost:9092"]
+    topic: jaeger-spans
+  kafka-encoding: proto
+

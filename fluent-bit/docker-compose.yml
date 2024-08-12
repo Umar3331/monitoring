@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   fluent-bit:
-    image: fluent/fluent-bit:latest
+    image: umar3331/fluent/fluent-bit:latest
     container_name: fluent-bit
     volumes:
       - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
@@ -10,10 +10,10 @@ services:
     ports:
       - "2020:2020"
     networks:
-      - monitoring-network
+      - monitoring
 
 networks:
-  monitoring-network:
-    external: true
+  monitoring:
+    driver: bridge
 
 

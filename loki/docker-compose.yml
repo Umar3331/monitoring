@@ -13,9 +13,9 @@ services:
       - ./data/index:/loki/index
     command: -config.file=/etc/loki/local-config.yaml
     networks:
-      - monitoring-network
+      - monitoring
 
 networks:
-  monitoring-network:
-    external: true
+  monitoring:
+    driver: bridge
 
