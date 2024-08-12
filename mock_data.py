@@ -10,7 +10,7 @@ trace.set_tracer_provider(TracerProvider())
 tracer = trace.get_tracer(__name__)
 
 # Set up the OTLP exporter
-otlp_exporter = OTLPSpanExporter(endpoint="http://13.48.25.194/:4317", insecure=True)
+otlp_exporter = OTLPSpanExporter(endpoint="http://51.20.6.50/:4317", insecure=True)
 
 # Set up the span processor and add it to the tracer provider
 span_processor = BatchSpanProcessor(otlp_exporter)
