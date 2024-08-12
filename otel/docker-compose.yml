@@ -11,3 +11,7 @@ services:
       - monitoring
     command: ["otelcol", "--config=/etc/otel/config.yaml"]  # Optional, if needed
 
+networks:
+  monitoring:
+    external: true
+

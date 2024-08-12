@@ -17,5 +17,5 @@ services:
 
 networks:
   monitoring:
-    driver: bridge
+    external: true
 

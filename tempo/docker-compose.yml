@@ -11,9 +11,9 @@ services:
       - ./data:/var/tempo/traces
     command: -config.file=/etc/tempo/tempo-config.yaml
     networks:
-      - monitoring-network
+      - monitoring
 
 networks:
-  monitoring-network:
+  monitoring:
     external: true
 

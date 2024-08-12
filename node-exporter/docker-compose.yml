@@ -8,4 +8,4 @@ services:
       - monitoring
 networks:
   monitoring:
-    driver: bridge
+    external: true
