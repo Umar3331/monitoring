@@ -1,4 +1,5 @@
 # Monitoring, Logging, and Tracing Setup on AWS EC2
+![Danske Diagram](https://github.com/user-attachments/assets/8b8a1517-37e5-4af1-aa1f-e4e24c7507fd)
 
 ## Overview
 
